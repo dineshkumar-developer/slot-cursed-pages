@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#0E0A16">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>CURSED PAGES — Paper Horror Slots</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23B3202A'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23F3EAD0' font-family='cursive'%3EC%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css?v=23">
+  <script src="js/config.js?v=23"></script>
+</head>
+<body>
+  <svg id="defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0"></svg>
+
+  <div id="app" data-orient="portrait" data-state="splash" data-fs="0">
+    <div id="scene" aria-hidden="true"></div>
+    <div id="sceneFS" aria-hidden="true"></div>
+    <div id="bats" aria-hidden="true"></div>
+    <canvas id="fx" aria-hidden="true"></canvas>
+    <div id="vig" aria-hidden="true"></div>
+
+    <div id="game">
+      <header id="top">
+        <button id="btnMenu" class="rbtn" aria-label="Menu"></button>
+        <div id="logo" aria-hidden="false"></div>
+        <div id="fsBar" class="hidden">
+          <div class="fs-count"><span class="lbl">FREE SPINS</span><b id="fsLeft">0</b></div>
+          <div id="ladder" aria-label="Curse multiplier"></div>
+          <div class="fs-total"><span class="lbl">TOTAL</span><b id="fsTotal">0</b></div>
+        </div>
+        <button id="btnSound" class="rbtn" aria-label="Sound"></button>
+      </header>
+
+      <section id="stage">
+        <div id="board">
+          <div id="reels"></div>
+          <div id="lines"></div>
+          <div id="frame"></div>
+          <div id="boltLayer"></div>
+        </div>
+        <div id="msg" aria-live="polite"><span id="msgText">SPIN TO WAKE THE DEAD</span></div>
+      </section>
+
+      <footer id="ctrl">
+        <div id="ctrlL">
+          <div class="chip" id="chipBal"><span class="lbl">BALANCE</span><b id="balance">0</b></div>
+          <div class="chip bet" id="chipBet">
+            <button id="betMinus" class="rbtn sm" aria-label="Lower bet"></button>
+            <div class="betv"><span class="lbl">TOTAL BET</span><b id="betVal">0</b></div>
+            <button id="betPlus" class="rbtn sm" aria-label="Raise bet"></button>
+          </div>
+          <div class="btnrow" id="rowMini">
+            <button id="btnAuto" class="pbtn" aria-label="Autoplay"></button>
+            <button id="btnTurbo" class="pbtn" aria-label="Spin speed"></button>
+            <button id="btnMax" class="pbtn txt" aria-label="Max bet">MAX</button>
+          </div>
+        </div>
+        <div id="ctrlR">
+          <div class="chip win" id="chipWin"><span class="lbl">WIN</span><b id="winAmt">0</b></div>
+          <button id="btnSpin" class="spin" aria-label="Spin"><span class="seal"></span><span class="spin-lbl" id="spinLbl">SPIN</span></button>
+          <button id="btnBuy" class="pbtn buy" aria-label="Buy free spins"><span class="bico"></span><span class="bt"><i>BUY SPINS</i><b id="buyPrice">0</b></span></button>
+        </div>
+      </footer>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="modals"></div>
+    <div id="flash"></div>
+    <div id="toast" aria-live="polite"></div>
+
+    <button id="btnTest" class="testbtn" aria-label="Test mode">TEST</button>
+    <section id="splash"></section>
+  </div>
+
+  <div id="rotateMsg" role="alert" aria-live="polite">
+    <svg class="rm-phone" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+      <g class="rm-rot"><rect x="40" y="14" width="40" height="76" rx="9" fill="#1d1329" stroke="#17121C" stroke-width="6"/><rect x="40" y="14" width="40" height="76" rx="9" fill="none" stroke="#E9DCC0" stroke-width="2.5"/><rect x="47" y="24" width="26" height="50" rx="3" fill="#2b1b3f"/><circle cx="60" cy="82" r="3.2" fill="#E9DCC0"/></g>
+      <path d="M92 24 C108 30 112 52 100 68" fill="none" stroke="#17121C" stroke-width="8" stroke-linecap="round"/><path d="M92 24 C108 30 112 52 100 68" fill="none" stroke="#B3202A" stroke-width="4" stroke-linecap="round"/>
+      <path d="M92 70 L100 68 L98 59" fill="none" stroke="#17121C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M92 70 L100 68 L98 59" fill="none" stroke="#B3202A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="rm-title">TURN YOUR PHONE</div>
+    <div class="rm-sub">Rotate to landscape for the best experience</div>
+  </div>
+  <script src="lib/gsap.min.js?v=23"></script>
+  <script src="js/math.js?v=23"></script>
+  <script src="js/core.js?v=23"></script>
+  <script src="js/art.js?v=23"></script>
+  <script src="js/scene.js?v=23"></script>
+  <script src="js/sky.js?v=23"></script>
+  <script src="js/assets.js?v=23"></script>
+  <script src="js/audio.js?v=23"></script>
+  <script src="js/fx.js?v=23"></script>
+  <script src="js/reels.js?v=23"></script>
+  <script src="js/ui.js?v=23"></script>
+  <script src="js/intro.js?v=23"></script>
+  <script src="js/game.js?v=23"></script>
+  <script src="js/main.js?v=23"></script>
+</body>
+</html>
